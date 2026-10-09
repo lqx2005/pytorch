@@ -406,7 +406,6 @@ class _TestDropout(torch.nn.Module):
         return (dropout, dropout_1, dropout_2, dropout_3, dropout_4)
 
 
-@instantiate_parametrized_tests
 class _TestDropoutMixedArgs(torch.nn.Module):
     def __init__(self, device):
         super().__init__()
@@ -426,6 +425,7 @@ class _TestDropoutMixedArgs(torch.nn.Module):
         return (dropout, dropout_1, dropout_2, dropout_3, dropout_4)
 
 
+@instantiate_parametrized_tests
 class TestGroupBatchFusion(TestCase):
     def compare_dict_tensors(self, ref_dict, res_dict, rtol=1e-3, atol=1e-3):
         if len(set(ref_dict.keys())) != len(set(res_dict.keys())):
